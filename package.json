@@ -2,9 +2,12 @@
   "name": "anuroop-invitation",
   "version": "1.0.0",
   "description": "reusable template for any kinda application",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "npm run test"
+    "start": "NODE_ENV=production node_modules/.bin/babel-node --presets react,es2016 src/server.js",
+    "test": "npm run test",
+    "dev": "./node_modules/.bin/http-server",
+    "build": "NODE_ENV=production node_modules/.bin/webpack -p"
   },
   "repository": {
     "type": "git",
@@ -29,6 +32,7 @@
     "react-router": "^4.2.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.2",
     "http-server": "^0.10.0",
     "webpack": "^3.8.1"
