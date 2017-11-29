@@ -7,7 +7,11 @@
     "start": "NODE_ENV=production node_modules/.bin/babel-node --presets react,es2016 src/server.js",
     "test": "npm run test",
     "dev": "./node_modules/.bin/http-server",
-    "build": "NODE_ENV=production node_modules/.bin/webpack -p"
+    "start": "cross-env NODE_ENV=production node_modules/.bin/babel-node --presets react,es2015 src/server.js",
+    "start-dev": "npm run start-dev-hmr",
+    "start-dev-single-page": "node_modules/.bin/http-server src/static",
+    "start-dev-hmr": "./node_modules/.bin/webpack-dev-server --progress --inline --hot --open",
+    "dev-build": "cross-env NODE_ENV=production node_modules/.bin/webpack -p"
   },
   "repository": {
     "type": "git",
@@ -20,6 +24,7 @@
   },
   "homepage": "https://github.com/anuroop15/node-with-react#readme",
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "babel": "^6.23.0",
     "babel-core": "^6.26.0",
     "babel-preset-es2016": "^6.24.1",
@@ -32,9 +37,9 @@
     "react-router": "^4.2.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.2",
     "http-server": "^0.10.0",
-    "webpack": "^3.8.1"
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
   }
 }
