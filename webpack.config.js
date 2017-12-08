@@ -12,9 +12,16 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    loaders: [{
-      test: path.join(__dirname, 'src'),
-      loader: ['babel-loader'],
+    rules: [{
+      test: /\.jsx?$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ["es2016", "react"]
+        }
+      }
+      //loader: ['babel-loader'],
       // query: {
       //   cacheDirectory: 'babel_cache',
       //   //presets: debug ? ['react', 'es2016', 'react-hmre'] : ['react', 'es2016']
