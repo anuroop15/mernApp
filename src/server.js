@@ -5,7 +5,7 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 import Routes from './routes';
-import NotFoundPage from './components/NotFoundPage';
+import NotFoundPage from './components/notFoundPage';
 
 
 const app = new Express();
