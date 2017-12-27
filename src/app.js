@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DashBoard from './components/dashBoard'
+import HomePage from './components/home/home'
 //import AppRoutes from './components/AppRoutes';
 
 export default class Home extends React.Component {
 	render () {
 		return (
 			<div>
-				<DashBoard />
+				<HomePage />
 			</div>
 		)
 	}

@@ -4,7 +4,7 @@ import React from 'react'
 export default class DashBoard extends React.Component {
 	render () {
 		return (
-			<div className=''>
+			<div className='page-total'>
 				<div>
 					<ul className='nav flex-column'>
 						<li className='nav-item'><a className='nav-item active' href="#"> Home </a></li>
