@@ -19,3 +19,4 @@ coverage
 tmp
 test/fixtures/test*
 .idea/
+.DS_Store
