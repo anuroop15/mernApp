@@ -1,18 +1,24 @@
 "use strict";
 
-const debug = process.env.NODE_ENV !== "production";
-const webpack = require('webpack');
 const path = require('path');
+const debug = process.env.NODE_ENV !== "production";
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
-  //devtool: debug ? 'inline-sourcemap' : null,	
+  devtool: 'inline-sourcemap',	
   entry: path.join(__dirname, 'src', 'app.js'),
   output: {
     path: path.join(__dirname, 'src', 'static', 'js'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/'
   },
   resolve: {
     extensions: ['.js', '.jsx']
+  },
+  devServer: {
+    contentBase: './dist'
   },
   module: {
     rules: [
@@ -26,6 +32,10 @@ module.exports = {
     ]
   },
   plugins: debug ? [] : [
+    new CleanWebpackPlugin(['dist']),
+    new HtmlWebpackPlugin({
+      title: 'Development'
+    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
